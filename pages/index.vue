@@ -96,7 +96,6 @@ console.log(menu, cashInRegisteer, orderQueue)
 
 
 //  Nested Object Types
-
 // type Adress = {
 // 	street: string,
 // 	city: string,
@@ -120,6 +119,39 @@ console.log(menu, cashInRegisteer, orderQueue)
 // 		city: 'New York',
 // 		country: 'USA'
 // 	}
+// }
+
+// let person2: Person = {
+// 	name: 'Mike',
+// 	age: 42,
+// 	isStudent: true,
+// 	adress: {
+// 		street: '123 Main St',
+// 		city: 'New York',
+// 		country: 'USA'
+// 	}
+// }
+
+
+//  Optional Properties
+// type Adress = {
+// 	street: string,
+// 	city: string,
+// 	country: string,
+// }
+
+// type Person = {
+// 	name: string,
+// 	age: number,
+// 	isStudent: boolean,
+// 	adress?: Adress
+// }
+
+
+// let person1: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
 // }
 
 // let person2: Person = {
