@@ -1,9 +1,8 @@
 <script setup lang="ts">
-
-// import {menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder} from '../index.js'
+// JS
+// import {menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder} from '../index.js' 
 
 // TS
-
 type Pizza = {
 	name: string,
 	price: number,
@@ -58,6 +57,10 @@ function placeOrder(pizzaName: string) {
 
 function completeOrder(orderId: number) {
 	const order = orderQueue.find(order => order.id === orderId)
+	if (order === undefined) {
+		console.error(`Order ${orderId} not found`)
+		return
+	}
 	order.status = "completed"
 	return order
 }
@@ -175,32 +178,32 @@ console.log(menu, cashInRegisteer, orderQueue)
 // Array Types
 // let prices: number[] = [100, 200, 300];
 
-type Person = {
-	name: string,
-	age: number,
-	isStudent: boolean,
-}
+// type Person = {
+// 	name: string,
+// 	age: number,
+// 	isStudent: boolean,
+// }
 
-let person1: Person = {
-	name: 'John',
-	age: 30,
-	isStudent: true,
-}
+// let person1: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
+// }
 
-let person2: Person = {
-	name: 'John',
-	age: 30,
-	isStudent: true,
-}
+// let person2: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
+// }
 
-let person3: Person = {
-	name: 'John',
-	age: 30,
-	isStudent: true,
-}
+// let person3: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
+// }
 
-let people: Person[] = [person1, person2, person3];
-let people2: Array<Person> = [person1, person2, person3];
+// let people: Person[] = [person1, person2, person3];
+// let people2: Array<Person> = [person1, person2, person3];
 
 
 </script>
