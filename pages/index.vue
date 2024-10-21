@@ -74,15 +74,33 @@ function completeOrder(orderId: number) {
 	return order
 }
 
+// Type Narroving
+type Identifier = number | string;
+
+function getPizzaDetail (identifier: Identifier) {
+	if(typeof identifier === 'string') {
+		return menu.find(pizza => pizza.name.toLowerCase() === identifier.toLowerCase())
+	} else {
+		return menu.find(pizza => pizza.id === identifier)
+	}
+}
+
+
 addNewPizza({ id: 5, name: 'Chicken', price: 12 });
 addNewPizza({ id: 6, name: 'BBQ', price: 12 });
 addNewPizza({ id: 7, name: 'Spicy', price: 11 });
 
+getPizzaDetail(1);
 placeOrder("Chicken");
-
+placeOrder("Papperoni");
 completeOrder(1);
+placeOrder("Anchovy");
+placeOrder("Veggie");
+completeOrder(2);
 
-console.log(menu, cashInRegisteer, orderQueue)
+console.log("Menu:", menu);
+console.log("Cash in Register:", cashInRegisteer);
+console.log("Order Queue:", orderQueue);
 
 
 // Explicit Types
