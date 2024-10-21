@@ -1,4 +1,3 @@
-
 const menu = [
 	{
 		name: 'Margarita',
@@ -56,3 +55,4 @@ console.log(menu, cashInRegisteer, orderQueue)
 
 
 export { menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder };
+

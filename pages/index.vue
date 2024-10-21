@@ -80,11 +80,12 @@ type Identifier = number | string;
 function getPizzaDetail (identifier: Identifier) {
 	if(typeof identifier === 'string') {
 		return menu.find(pizza => pizza.name.toLowerCase() === identifier.toLowerCase())
-	} else {
+	} else  if(typeof identifier === 'number') {
 		return menu.find(pizza => pizza.id === identifier)
+	} else {
+		throw new Error('Parameter `identifier` must be a string or number')
 	}
 }
-
 
 addNewPizza({ id: 5, name: 'Chicken', price: 12 });
 addNewPizza({ id: 6, name: 'BBQ', price: 12 });
