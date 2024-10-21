@@ -3,6 +3,8 @@
 // import {menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder} from '../index.js' 
 
 // TS
+type Status = "ordered" | "completed"
+
 type Pizza = {
 	name: string,
 	price: number,
@@ -10,7 +12,7 @@ type Pizza = {
 
 type Order = {
 	id: number,
-	status: string,
+	status: Status,
 	pizza: Pizza,
 }
 
@@ -48,7 +50,7 @@ function placeOrder(pizzaName: string) {
 		return
 	}
 	cashInRegisteer += selectedPizza.price
-	const newOrder = {
+	const newOrder: Order = {
 		id: nextOrderId++, pizza: selectedPizza, status: "ordered"
 	}
 	orderQueue.push(newOrder)
