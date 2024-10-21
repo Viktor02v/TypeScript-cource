@@ -206,6 +206,10 @@ console.log(menu, cashInRegisteer, orderQueue)
 // let people2: Array<Person> = [person1, person2, person3];
 
 
+// Literal Types
+// let myName = "John";
+// const myName2 = "John";
+
 </script>
 
 <template>
