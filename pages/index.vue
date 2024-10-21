@@ -210,6 +210,16 @@ console.log(menu, cashInRegisteer, orderQueue)
 // let myName = "John";
 // const myName2 = "John";
 
+
+// Unions
+// type User = {
+// 	name: string,
+// 	role: "admin" | "user" | "guest",
+// }
+
+// type UserRole = User["role"];
+
+// let userRole: UserRole = "admin";
 </script>
 
 <template>
