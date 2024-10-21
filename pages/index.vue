@@ -9,6 +9,12 @@ type Pizza = {
 	price: number,
 }
 
+type Order = {
+	id: number,
+	status: string,
+	pizza: Pizza,
+}
+
 const menu: Pizza[] = [
 	{
 		name: 'Margarita',
@@ -30,7 +36,7 @@ const menu: Pizza[] = [
 
 let cashInRegisteer: number = 100
 let nextOrderId: number = 1
-const orderQueue = [];
+const orderQueue: Order[] = [];
 
 function addNewPizza(pizzaObj: Pizza) {
 	menu.push(pizzaObj)
@@ -164,6 +170,39 @@ console.log(menu, cashInRegisteer, orderQueue)
 // 		country: 'USA'
 // 	}
 // }
+
+
+// Array Types
+// let prices: number[] = [100, 200, 300];
+
+type Person = {
+	name: string,
+	age: number,
+	isStudent: boolean,
+}
+
+let person1: Person = {
+	name: 'John',
+	age: 30,
+	isStudent: true,
+}
+
+let person2: Person = {
+	name: 'John',
+	age: 30,
+	isStudent: true,
+}
+
+let person3: Person = {
+	name: 'John',
+	age: 30,
+	isStudent: true,
+}
+
+let people: Person[] = [person1, person2, person3];
+let people2: Array<Person> = [person1, person2, person3];
+
+
 </script>
 
 <template>
