@@ -3,12 +3,15 @@
 // import {menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder} from '../index.js' 
 
 // TS
-type Status = "ordered" | "completed"
+
 
 type Pizza = {
+	id: number,
 	name: string,
 	price: number,
 }
+
+type Status = "ordered" | "completed"
 
 type Order = {
 	id: number,
@@ -18,18 +21,22 @@ type Order = {
 
 const menu: Pizza[] = [
 	{
+		id: 1,
 		name: 'Margarita',
 		price: 8
 	},
 	{
+		id: 2,
 		name: 'Papperoni',
 		price: 10
 	},
 	{
+		id: 3,
 		name: 'Hiwaiian',
 		price: 10
 	},
 	{
+		id: 4,
 		name: 'Veggie',
 		price: 9
 	}
@@ -67,9 +74,9 @@ function completeOrder(orderId: number) {
 	return order
 }
 
-addNewPizza({ name: 'Chicken', price: 12 });
-addNewPizza({ name: 'BBQ', price: 12 });
-addNewPizza({ name: 'Spicy', price: 11 });
+addNewPizza({ id: 5, name: 'Chicken', price: 12 });
+addNewPizza({ id: 6, name: 'BBQ', price: 12 });
+addNewPizza({ id: 7, name: 'Spicy', price: 11 });
 
 placeOrder("Chicken");
 
