@@ -1,66 +1,15 @@
 <script setup lang="ts">
 
-// !! JS
+// import {menu, cashInRegisteer, orderQueue, addNewPizza, placeOrder, completeOrder} from '../index.js'
 
-// const menu = [
-// 	{
-// 		name: 'Margarita',
-// 		price: 8
-// 	},
-// 	{
-// 		name: 'Papperoni',
-// 		price: 10
-// 	},
-// 	{
-// 		name: 'Hiwaiian',
-// 		price: 10
-// 	},
-// 	{
-// 		name: 'Veggie',
-// 		price: 9
-// 	}
-// ]
+// TS
 
-// const cashInRegisteer = 100
-// const orderQueue = [];
-// const nextOrderId = 1
+type Pizza = {
+	name: string,
+	price: number,
+}
 
-// function addNewPizza(pizzaObj: any) {
-// 	menu.push(pizzaObj)
-// }
-
-// function placeOrder(pizzaName: any) {
-// 	const selectedPizza = menu.find(pizzaObj => pizzaObj.name === pizzaName)
-// 	cashInRegisteer += selectedPizza.price
-// 	const newOrder = {
-// 		id: nextOrderId++,
-// 		pizza: selectedPizza,
-// 		status: "ordered"
-// 	}
-// 	orderQueue.push(newOrder)
-// 	return newOrder
-// }
-
-// function completeOrder(orderId: number) {
-// 	const order = orderQueue.find(order => order.id === orderId)
-// 	order.status = "completed"
-// 	return order
-// }
-
-// addNewPizza({name: 'Chicken',price: 12});
-// addNewPizza({name: 'BBQ',price: 12});
-// addNewPizza({name: 'Spicy',price: 11});
-
-// placeOrder("Chicken");
-
-// completeOrder(1);
-
-// console.log(menu, cashInRegisteer, orderQueue)
-
-
-// !! TS
-
-const menu = [
+const menu: Pizza[] = [
 	{
 		name: 'Margarita',
 		price: 8
@@ -79,16 +28,20 @@ const menu = [
 	}
 ]
 
-const cashInRegisteer = 100
+let cashInRegisteer: number = 100
+let nextOrderId: number = 1
 const orderQueue = [];
-const nextOrderId = 1
 
-function addNewPizza(pizzaObj) {
+function addNewPizza(pizzaObj: Pizza) {
 	menu.push(pizzaObj)
 }
 
-function placeOrder(pizzaName) {
+function placeOrder(pizzaName: string) {
 	const selectedPizza = menu.find(pizzaObj => pizzaObj.name === pizzaName)
+	if (selectedPizza === undefined) {
+		console.error(`${pizzaName} is not on the menu`)
+		return
+	}
 	cashInRegisteer += selectedPizza.price
 	const newOrder = {
 		id: nextOrderId++, pizza: selectedPizza, status: "ordered"
@@ -114,6 +67,71 @@ completeOrder(1);
 console.log(menu, cashInRegisteer, orderQueue)
 
 
+// Explicit Types
+// let numbersOfWheels: number = 4;
+// let isStudent: boolean = true;
+
+
+//  Custom Types
+// type Food = string;
+// let favoriteFood: Food = "pizza";
+
+// type Person = {
+// 	name: string,
+// 	age: number,
+// 	isStudent: boolean
+// }
+
+// let person: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
+// }
+
+// let person2: Person = {
+// 	name: 'Mike',
+// 	age: 42,
+// 	isstudent: true,
+// }
+
+
+//  Nested Object Types
+
+// type Adress = {
+// 	street: string,
+// 	city: string,
+// 	country: string,
+// }
+
+// type Person = {
+// 	name: string,
+// 	age: number,
+// 	isStudent: boolean,
+// 	adress: Adress
+// }
+
+
+// let person1: Person = {
+// 	name: 'John',
+// 	age: 30,
+// 	isStudent: true,
+// 	adress: {
+// 		street: '123 Main St',
+// 		city: 'New York',
+// 		country: 'USA'
+// 	}
+// }
+
+// let person2: Person = {
+// 	name: 'Mike',
+// 	age: 42,
+// 	isStudent: true,
+// 	adress: {
+// 		street: '123 Main St',
+// 		city: 'New York',
+// 		country: 'USA'
+// 	}
+// }
 </script>
 
 <template>
@@ -134,5 +152,7 @@ console.log(menu, cashInRegisteer, orderQueue)
 	align-items: center;
 	justify-content: center;
 	gap: 30px;
+	padding-inline: 40px;
+	padding-block: 40px;
 }
 </style>
