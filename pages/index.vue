@@ -77,10 +77,10 @@ function completeOrder(orderId: number) {
 // Type Narroving
 type Identifier = number | string;
 
-function getPizzaDetail (identifier: Identifier) {
-	if(typeof identifier === 'string') {
+function getPizzaDetail(identifier: Identifier) {
+	if (typeof identifier === 'string') {
 		return menu.find(pizza => pizza.name.toLowerCase() === identifier.toLowerCase())
-	} else  if(typeof identifier === 'number') {
+	} else if (typeof identifier === 'number') {
 		return menu.find(pizza => pizza.id === identifier)
 	} else {
 		throw new Error('Parameter `identifier` must be a string or number')
@@ -246,8 +246,42 @@ console.log("Order Queue:", orderQueue);
 // }
 
 // type UserRole = User["role"];
-
 // let userRole: UserRole = "admin";
+
+
+
+// Function Return Types
+type UserRole = "guest" | "member" | "admin";
+
+type User = {
+	username: string,
+	role: UserRole,
+}
+
+const users: User[] = [
+	{
+		username: "John",
+		role: "admin",
+	},
+	{
+		username: "Jane",
+		role: "member",
+	},
+	{
+		username: "Bob",
+		role: "guest",
+	},
+]
+
+
+function fetchUserData(username: string): User {
+	const user = users.find(user => user.username === username);
+	if (!user) {
+		throw new Error(`User with the name of ${username} is not found`);
+	}
+	return user
+}
+
 </script>
 
 <template>
