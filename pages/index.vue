@@ -251,36 +251,42 @@ console.log("Order Queue:", orderQueue);
 
 
 // Function Return Types
-type UserRole = "guest" | "member" | "admin";
+// type UserRole = "guest" | "member" | "admin";
 
-type User = {
-	username: string,
-	role: UserRole,
-}
+// type User = {
+// 	username: string,
+// 	role: UserRole,
+// }
 
-const users: User[] = [
-	{
-		username: "John",
-		role: "admin",
-	},
-	{
-		username: "Jane",
-		role: "member",
-	},
-	{
-		username: "Bob",
-		role: "guest",
-	},
-]
+// const users: User[] = [
+// 	{
+// 		username: "John",
+// 		role: "admin",
+// 	},
+// 	{
+// 		username: "Jane",
+// 		role: "member",
+// 	},
+// 	{
+// 		username: "Bob",
+// 		role: "guest",
+// 	},
+// ]
 
 
-function fetchUserData(username: string): User {
-	const user = users.find(user => user.username === username);
-	if (!user) {
-		throw new Error(`User with the name of ${username} is not found`);
-	}
-	return user
-}
+// function fetchUserData(username: string): User {
+// 	const user = users.find(user => user.username === username);
+// 	if (!user) {
+// 		throw new Error(`User with the name of ${username} is not found`);
+// 	}
+// 	return user
+// }
+
+
+
+// TS-specific types:any
+// let age: any = 1; // Shouldn't use it, but it can be like a temporary placeholder when transitioning code from JS to TS
+// age.toUppercase(); 
 
 </script>
 
